@@ -2,9 +2,12 @@ import User from "../../_models/User";
 import bcrypt from "bcryptjs"
 import DBconnect from "../../_utils/DBconnect";
 import generateVerificationToken from "../../_utils/generate Verification Code";
-import generateTokenAndSetCookie from "../../_utils/generateTokenAndSetCookie";
+import jwt from "jsonwebtoken"
 
 import { sendVerificationEmail } from "@/app/_mailtrap/emails";
+import { NextResponse } from "next/server";
+
+const secret = process.env.JWT_SECRET
 
 export async function POST(req){
     await DBconnect();
@@ -39,12 +42,17 @@ export async function POST(req){
 
         await user.save()
 
-
-        generateTokenAndSetCookie(user._id)
-
         sendVerificationEmail(user.email, verificationToken);
 
-        return Response.json({success : true, message : "User created successfully", user : {...user, password : undefined}}, {status : 200})
+        //settingcookies
+
+        const response = NextResponse.json({success : true, message : "User created Successfully"})
+
+        const token = jwt.sign({name : user.name}, secret)
+
+        response.cookies.set("token", token, {maxAge : 24 * 60 * 60 *1000})
+
+        return response
 
 
     }

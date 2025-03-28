@@ -1,11 +1,12 @@
-import { cookies } from "next/headers"
+import { NextResponse } from "next/server";
 
 export async function POST(req){
-    const cookie = await cookies();
+    const response =  NextResponse.json({success : true, message : "You have been logged out"})
 
-    cookie.delete("token")
+    response.cookies.set("token", "", {expires : new Date(0)})
 
-    return Response.json({success : true, message : "Cookie has been cleared"})
+    return response
+
 }
 
 export async function GET(){

@@ -1,7 +1,9 @@
 import User from "@/app/_models/User";
 import DBconnect from "@/app/_utils/DBconnect";
 import bcrypt from "bcryptjs"
-import generateTokenAndSetCookie from "@/app/_utils/generateTokenAndSetCookie";
+import { NextResponse } from "next/server";
+import jwt from"jsonwebtoken"
+const secret = process.env.JWT_SECRET
 
 export async function POST(req){
     try{
@@ -27,12 +29,20 @@ export async function POST(req){
             return Response.json({success : false, message : "Wrong Password !!!"} , {status : 200});
 
         }
-        generateTokenAndSetCookie(user._id)
 
         user.lastLogin = Date.now()
         await user.save()
 
-        return Response.json({success : true, message : "Logged In Successfully"})
+        //cookies
+
+        const response = NextResponse.json({success : true, message : "Logged In Successfully"})
+    
+        const token = jwt.sign({name : user.name}, secret)
+
+        response.cookies.set("token", token, {maxAge : 24 * 60 * 60 *1000})
+
+        return response
+        
         
     }
     catch(err){
