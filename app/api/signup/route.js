@@ -45,14 +45,17 @@ export async function POST(req){
         sendVerificationEmail(user.email, verificationToken);
 
         //settingcookies
-
-        const response = NextResponse.json({success : true, message : "User created Successfully"})
-
-        const token = jwt.sign({name : user.name}, secret)
+        const response = NextResponse.json({success : true, message : "Logged In Successfully"})
+        
+        const role = user.email == "hrithwin123@gmail.com" ? "admin" : "user";
+        
+        const token = jwt.sign({name : user.name, lastLogin : user.lastLogin, role}, secret)
+    
 
         response.cookies.set("token", token, {maxAge : 24 * 60 * 60 *1000})
 
         return response
+      
 
 
     }
