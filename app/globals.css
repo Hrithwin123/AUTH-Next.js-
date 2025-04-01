@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme{
+  --font-kanit : "Kanit";
+  --font-title : "Audiowide";
+}
+
+:root{
+  overflow-x : hidden;
+}
+
+.whole{
+  background-color : rgb(10, 31, 86);
+}
+
 input:focus{
 border : solid 1.5px rgb(0, 180, 180);
 background-color:rgba(0, 180, 180, 25%);
@@ -21,6 +34,7 @@ text-align:center;
 position : relative;
 width : calc(100 + 25px);
 color :rgb(236, 72, 153);
+
 }
 
 #navelem:hover{
@@ -38,10 +52,256 @@ transition : color 0.5s ease-in-out;
   bottom:-8;
   left:50%;
   transition : 0.5s ease-in-out;
+  
 }
 
 #navelem:hover::before{
   width : 100%;
   height : 2px;
   left:0px;
+}
+
+.text{
+  font-family : "Kanit";
+  animation : text 1s 0.25s ease-out forwards;
+  opacity : 0;
+
+}
+
+.text:before{
+  position : absolute;
+  content : "";
+  background: rgb(0, 217, 255);
+  height : 5px;
+  width : calc(100% + 25px);
+  left : 0;
+  bottom : 0;
+  animation : underline 1s 0.25s ease-out;
+  
+}
+
+.image{
+  animation : image 0.5s ease-out;
+  
+}
+
+
+.page-1{
+  animation : fade-out linear forwards;
+  animation-timeline : view();
+  animation-range:exit;
+}
+
+@keyframes fade-out {
+
+  0%{
+    scale : 1;
+    opacity : 1;
+  }
+  50%{
+    opacity : 0.25;
+
+  }
+  100%{
+    scale : 3;
+    opacity : 0;
+  }
+}
+
+.box{
+  animation : box 1s .5s cubic-bezier( 0, 0.77, 0, 1.01 ) forwards;
+  opacity : 0;
+}
+
+.nav{
+  animation : nav 1s ease-out forwards;
+}
+
+.done-box{
+  transition : color 2s ease-in-out;
+  animation : done-box 1s  ease-out forwards;
+}
+
+
+
+.done-box > div > .username::before{
+  position : absolute;
+  content:"";
+  height : 3px;
+  width : 0;
+  background-color :rgb(236, 72, 153);
+  bottom : -4;
+  left:0;
+
+
+
+}
+
+.done-box > div > .username::before{
+animation : username-underline 1s ease-in-out forwards infinite ; 
+
+}
+
+.done-box > div > .role{
+animation : role-color 2s infinite;
+color : rgb(236, 72, 153);
+}
+
+
+.data-box-1{
+  animation : box-in linear forwards;
+  animation-timeline:view();
+  animation-range-start:cover;
+  animation-range-end:contain;
+  border: rgb(10, 31, 86) solid 5px;
+  
+}
+
+
+.data-box-2{
+  animation : box-in linear forwards;
+  animation-timeline:view();
+  animation-range-start:cover;
+  animation-range-end:250px;
+  border: rgb(10, 31, 86) solid 5px;
+  
+}
+
+.scroll-bar{
+  border: rgb(10, 31, 86) solid 5px;
+  background-color :rgb(10, 31, 86);
+}
+
+
+.scroll-box{
+animation :scroll linear forwards;
+animation-timeline:scroll(root);
+transform : none;
+}
+
+@keyframes scroll{
+
+
+  100%{
+    transform : translateX(calc(-100% + 20px))
+  }
+}
+
+@keyframes box-in {
+
+  0%{
+    transform : translateY(-50);
+    scale : 0.7;
+    opacity : 0;
+  }
+  
+  100%{
+    transfrom : none;
+    scale : 1;
+    opacity : 1;
+  }
+}
+
+@keyframes role-color {
+
+  0%{
+    color : rgb(236, 72, 153);
+  }
+  50%{
+    color : white;
+    
+  }
+  100%{
+    color : rgb(236, 72, 153);
+  }
+}
+
+@keyframes username-underline {
+
+  0%{
+    height : 3px;
+    width : 0px;
+    left:0;
+    
+  }
+  50%{
+    width :100%;
+    left:0;
+  }
+  100%{
+    width :0px;
+
+    left : 100%;
+
+  }
+}
+
+@keyframes done-box {
+
+  0%{
+    bottom : -100%;
+  }
+
+  100%{
+    bottom : 45px;
+
+  }
+}
+@keyframes nav {
+
+  0%{
+    top : -100%;
+  }
+
+  100%{
+    top : 0;
+    opacity : 1;
+  }
+}
+
+@keyframes box {
+
+  0%{
+    top : -100%;
+  }
+
+  100%{
+    top : 50%;
+    opacity : 1;
+  }
+}
+
+@keyframes image {
+
+  0%{
+    opacity : 0;
+    scale : 0.5;
+  }
+
+  100%{
+    opacity : 1;
+    scale : 1;
+  }
+}
+
+@keyframes text{
+  0%{
+    left : -100;
+    opacity : 0;
+  }
+
+  100%{
+    left : 5;
+    opacity : 1;
+  }
+}
+
+@keyframes underline{
+  0%{
+    width : 0;
+  }
+
+  100%{
+    width : calc(100% + 25px)
+  }
 }
