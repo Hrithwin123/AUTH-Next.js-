@@ -44,7 +44,6 @@ export default function Signup(){
         fetch("/api/signup", options)
         .then(res => res.json())
         .then((data) => {
-            setTitle(data.message)
             if(data.success){
                 window.location.href = "/verify"
             }

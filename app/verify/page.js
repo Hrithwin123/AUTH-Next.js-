@@ -46,7 +46,7 @@ async function verifyOtp(){
     const data = await res.json();
     setTitle(data.message)
     if(data.success){
-        window.location.href = "./verifiedUsers"
+        window.location.href = "/done"
     }
 
    

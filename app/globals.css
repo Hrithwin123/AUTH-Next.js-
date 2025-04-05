@@ -92,21 +92,7 @@ transition : color 0.5s ease-in-out;
   animation-range:exit;
 }
 
-@keyframes fade-out {
 
-  0%{
-    scale : 1;
-    opacity : 1;
-  }
-  50%{
-    opacity : 0.25;
-
-  }
-  100%{
-    scale : 3;
-    opacity : 0;
-  }
-}
 
 .box{
   animation : box 1s .5s cubic-bezier( 0, 0.77, 0, 1.01 ) forwards;
@@ -167,23 +153,137 @@ color : rgb(236, 72, 153);
   
 }
 
-.scroll-bar{
+.scroll-bar-2{
   border: rgb(10, 31, 86) solid 5px;
   background-color :rgb(10, 31, 86);
+  animation : box-in;
+  animation-timeline :view(); 
+  animation-range-start : cover;
+  animation-range-end : 200px;
+
+
 }
 
 
-.scroll-box{
-animation :scroll linear forwards;
-animation-timeline:scroll(root);
-transform : none;
+.scroll-bar-1{
+  border: rgb(10, 31, 86) solid 5px;
+  background-color :rgb(10, 31, 86);
+  animation : box-in;
+  animation-timeline :view(); 
+  animation-range-start : cover;
+  animation-range-end : contain;
+
 }
 
-@keyframes scroll{
+
+
+.scroll-box-1{
+animation :scroll-left linear 10s infinite ;
+transform : translateX(0);
+}
+
+.scroll-box-2{
+  animation :scroll-right linear 10s infinite ;
+  transform : translateX(calc(-170% ))
+}
+
+/* .page-2{
+  animation : page-2-out linear;
+  animation-timeline : view();
+  animation-range : exit;
+  opacity : 1;
+  scale : 1;
+  transform : none;
+} */
+
+.leftbox{
+  animation : left-box linear;
+  animation-timeline : view();
+  animation-range : exit; 
+}
+
+.rightbox{
+  animation : right-box linear;
+  animation-timeline : view();
+  animation-range : exit; 
+
+}
+
+@keyframes left-box{
+
+  0%{
+    opacity : 1;
+    scale : 1;
+    transform : none;
+  }
+
+  100%{
+    opacity : 0;
+    scale : 1.5;
+    transform : translateX(-100%)
+
+  }
+}
+
+@keyframes right-box{
+
+  0%{
+    opacity : 1;
+    scale : 1;
+    transform : none;
+  }
+
+  100%{
+    opacity : 0;
+    scale : 1.5;
+    transform : translateX(+100%)
+
+  }
+}
+
+@keyframes page-2-out {
+
+  75%{
+    opacity : 0.1;
+  }
+  
+  100%{
+    opacity : 0;
+    scale : 1.5;
+    transform : translateY(30%)
+
+  }
+}
+
+@keyframes fade-out {
+
+  0%{
+    scale : 1;
+    opacity : 1;
+  }
+  50%{
+    opacity : 0.25;
+
+  }
+  100%{
+    scale : 3;
+    opacity : 0;
+  }
+}
+
+@keyframes scroll-right{
+  
+  
+  100%{
+    transform : translateX(0);
+  }
+}
+
+@keyframes scroll-left{
 
 
   100%{
-    transform : translateX(calc(-100% + 20px))
+    transform : translateX(calc(-170% ))
   }
 }
 

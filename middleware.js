@@ -6,7 +6,6 @@ const envsecret = process.env.JWT_SECRET
 
 export async function middleware(req){
 
-    console.log("middleware run")
 
     const token = await req.cookies.get("token")?.value
     const secret = new TextEncoder().encode(envsecret)

@@ -30,8 +30,11 @@ return(
        </div>
       
 
-      <div className="relative page-2 -z-10  w-[100dvw] h-[100dvh]">
+      <div className="relative page-2 -z-10  w-[100dvw] h-[100dvh] ">
+        <div className="relative leftbox -z-10 w-[100dvw] h-[50dvh]">
+
         <div className="p-5 shadow-lg shadow-cyan-300 absolute data-box-1 left-15 top-10 w-100 min-h-50 rounded-xl bg-linear-to-br from-cyan-300 to-indigo-700 ring-3 ring-cyan-300 border-5 border-[rgb(10, 31, 86)]">
+         
           <h1 className="text-3xl font-kanit text-center text-white">Authentication</h1>
           <p className="text-xl font-kanit text-center text-white mt-2 ">
             Its the process in which the identity of the User is verified.
@@ -40,8 +43,8 @@ return(
           </p>
         </div>
 
-        <div className="scroll-bar overflow-hidden shadow-lg shadow-cyan-300  absolute w-120 h-15 border-5 border-black right-20 top-30 rounded-2xl ring-3  ring-cyan-300">
-          <div className="scroll-box flex items-center justify-between gap-[5px] text-white font-kanit ">
+        <div className="scroll-bar-1 overflow-hidden shadow-lg shadow-cyan-300  absolute w-120 h-15 border-5 border-black right-20 top-30 rounded-2xl ring-3  ring-cyan-300">
+          <div className="scroll-box-1 flex items-center justify-between gap-[5px] text-white font-kanit ">
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Username</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Password</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">JWT</div>
@@ -51,6 +54,7 @@ return(
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">OTP</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Login</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 min-w-20 px-2 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Verification</div>
+
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Username</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Password</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">JWT</div>
@@ -59,39 +63,74 @@ return(
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Email</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">OTP</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Login</div>
+            <div className="flex-shrink-0 flex items-center justify-center h-12 min-w-20 px-2 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Verification</div>
           </div>
         </div>
+        </div>
 
-        <div className="scroll-bar overflow-hidden shadow-lg shadow-cyan-300  absolute w-120 h-15 border-5 border-black left-10 bottom-30 rounded-2xl ring-3  ring-cyan-300">
-          <div className="scroll-box flex items-center justify-between gap-[5px] text-white font-kanit ">
+        <div className="relative rightbox -z-10 w-[100dvw] h-[50dvh]">
+
+        <div className="scroll-bar-2 overflow-hidden shadow-lg shadow-cyan-300  absolute w-120 h-15 border-5 border-black left-10 bottom-30 rounded-2xl ring-3  ring-cyan-300">
+          <div className="scroll-box-2 flex items-center justify-between gap-[5px] text-white font-kanit ">
+            <div className="flex-shrink-0 flex items-center justify-center h-12 min-w-20 px-2 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Verification</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Login</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">OTP</div>
-            <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">JWT</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Email</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 min-w-20 px-2 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Sign Up</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Cookies</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">JWT</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Password</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 min-w-20 px-2 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Username</div>
+
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Verification</div>
-            <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Password</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Login</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">OTP</div>
-            <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">JWT</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Email</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 min-w-20 px-2 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Sign Up</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Cookies</div>
             <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">JWT</div>
+            <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Password</div>
+            <div className="flex-shrink-0 flex items-center justify-center h-12 px-2 min-w-20 rounded-lg bg-linear-to-br from-cyan-300 to-indigo-700">Username</div>
           </div>
         </div>
 
         <div className="p-5 shadow-lg shadow-cyan-300 absolute data-box-2 right-20 bottom-10  w-100 min-h-50 rounded-xl bg-linear-to-br from-cyan-300 to-indigo-700 ring-3 ring-cyan-300 border-5 border-[rgb (10, 31, 86)]">
           <h1 className="text-3xl font-kanit text-center text-white">Authorization</h1>
             <p className="text-xl font-kanit text-center text-white mt-2 ">
-              Its the process using which u determine whether a User has the permissions to view certain content or perform specific actions.
-              
+              Its the process using which you determine whether a User has the permissions to view certain content or perform specific actions.
             </p>
 
+        </div>
+        </div>
+      </div>
+
+      <div className="page-3 relative -z-10  w-[100dvw] h-[100dvh] text-white">
+        <div className="border-2 border-black absolute left-10 top-10">
+          <div className="text-6xl underline decoration-cyan-300 underline-offset-4 font-kanit">Authentication</div>
+          <div className="text-xl  font-kanit">
+          <div className="text-3xl font-kanit">Sign Up</div>
+            <ul className="text-xl">
+              <li>User details are taken using forms.</li>
+              <li>Details are stored in the database.</li>
+              <li>A random 6 digit OTP is generated.</li>
+              <li>The OTP is sent to the email mentioned in the details using Mailtrap.</li>
+              <li>Automatically taken to the verify page to enter OTP</li>
+              <li>Once the correct OTP is entered the user is verified</li>
+              <li>a cookie is set with the user details after signing it with JWT</li>
+              <li>Verified users can access the DONE (content) page</li>
+
+            </ul>
+          </div>
+          <div className="border-2 border-black absolute -10 right bottom-10">
+          <div className="text-3xl font-kanit">Verification</div>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          </div>
         </div>
       </div>
 

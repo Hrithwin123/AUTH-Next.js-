@@ -49,8 +49,8 @@ export async function POST(req){
         
         const role = user.email == "hrithwin123@gmail.com" ? "admin" : "user";
         
-        const token = jwt.sign({name : user.name, lastLogin : user.lastLogin, role}, secret)
-    
+        const token = jwt.sign({name : user.name, lastLogin : user.lastLogin, role, isVerified : user.isVerified}, secret)
+        
 
         response.cookies.set("token", token, {maxAge : 24 * 60 * 60 *1000})
 
