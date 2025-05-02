@@ -1,7 +1,10 @@
 import User from "../../_models/User";
-
+import jwt from "jsonwebtoken"
 import { sendWelcomeEmail } from "../../_mailtrap/emails";
 import DBconnect from "@/app/_utils/DBconnect";
+import { NextResponse } from "next/server";
+const secret = process.env.JWT_SECRET
+
 
 
 export async function POST(req){
@@ -28,14 +31,23 @@ export async function POST(req){
         user.verificationTokenExpiresAt = undefined;
         
         await user.save()
+
+        //rewrite token written on signup
+
+       const response = NextResponse.json({success : true, message : "Logged In Successfully"})
+       
+        const role = user.email == "hrithwin123@gmail.com" ? "admin" : "user";
         
-        sendWelcomeEmail(user.email)
+        const token = jwt.sign({name : user.name, lastLogin : user.lastLogin, role, isVerified : user.isVerified}, secret)
+    
+        response.cookies.set("token", token, {maxAge : 24 * 60 * 60 *1000})
+
+        return response
         
-        return Response.json({success : true, message : "You are Now Verified"}, {status : 200})
         
     }
     catch(err){
-        return Response.json({success : false, message : `Error occured : ${err}`}, {status : 400})
+        return NextResponse.json({success : false, message : `Error occured : ${err}`}, {status : 400})
 
     }
 

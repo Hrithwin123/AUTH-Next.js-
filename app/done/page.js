@@ -28,7 +28,8 @@ export default function (){
                 setLoaded(true)
             }
             else{
-                setTitle("You are not verified yet, Please complete the Sign Up process")
+                setTitle(<div className="text-center font-kanit">You are not verified yet, Please complete the Sign Up process</div>)
+                setLoaded(true)
             }
             
            
@@ -42,15 +43,15 @@ export default function (){
         fetch("/api/logout", {method : "POST"})
         .then(res => res.json)
         .then(data => {
-            setTitle(<div className="text-4xl font-title">Logged out Successfully</div>)
-          
+            setTitle(<div className="text-4xl font-title text-center">Logged out Successfully</div>)
+            setVerified(false)
         })
     }
 
     
     const content = (
         <div className="done-box text-white  font-[sans-serif] text-2xl flex flex-col items-center justify-evenly bg-purple-950/75 absolute h-110 w-100   rounded-md shadow-lg shadow-pink-500 border-2 border-pink-500 ">
-            <div className="text-center">{title}</div>
+            {title}
             <div className="p-3 px-5 ">Welcome <span className="username relative font-title">{name}</span></div>
             <div className="p-3 px-5  capitalize">Your Role is <span className="role font-bold text-3xl font-kanit text-pink-500">{role}</span></div>
             <div className="p-3 px-5 text-center">Your Last login was on <span className="text-pink-400">{lastLogin}</span></div>
@@ -60,7 +61,7 @@ export default function (){
 
     const loading = (
         <div className="done-box text-white  font-[sans-serif] text-2xl flex flex-col items-center justify-evenly bg-purple-950/75 absolute h-110 w-100   rounded-md shadow-lg shadow-pink-500 border-2 border-pink-500 ">
-            <div className="text-center font-kanit">{title}</div>
+            {title}
             <div className="spinner rounded-full h-16 w-16 border-4 border-t-4 border-pink-500 animate-spin  border-t-purple-700 border-"></div>
         </div>
 

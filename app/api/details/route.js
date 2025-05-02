@@ -5,12 +5,21 @@ const secret = new TextEncoder().encode(process.env.JWT_SECRET)
 
 export async function GET(req){
     
-    const token = req.cookies.get("token")?.value;
+    try{
+        const token = req.cookies.get("token")?.value;
 
-    const {payload} = await jwtVerify(token, secret);
-
-    console.log(payload)
-
-    return NextResponse.json(payload)
-
+        const {payload} = await jwtVerify(token, secret);
+    
+        console.log(payload)
+    
+        return NextResponse.json(payload)
+        
+    }
+    catch(err){
+        
+        const payload = {isVerified : false}
+        console.log(err)
+        return NextResponse.json(payload)
+    }
+   
 }

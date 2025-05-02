@@ -1,0 +1,39 @@
+<div className="title text-6xl underline decoration-cyan-300 underline-offset-4 font-title text-center">Authentication</div>
+
+          <div className="flex gap-2 absolute top-30 right-[50] translate-x-[-50%]">
+
+            <div className="signup relative h-100 w-75 bg-white/5  border-white border-2  flex flex-col items-center shadow-md shadow-white">
+              
+              <FontAwesomeIcon className="text-cyan-300 text-6xl mt-5" icon={faRightToBracket}></FontAwesomeIcon>
+              <div className="text-3xl underline decoration-cyan-300 underline-offset-3 font-title">Sign Up</div>
+              <ul className="list-disc text-sm font-kanit mt-5">
+                <li>User enters Name, Email and Password</li>
+                <li>The data is sent to the DataBase</li>
+                <li>A token is signed of the data using JWT</li>
+                <li>The token is then set as a cookie</li>
+                <li>An OTP is sent to the email of the User</li>
+                <li>They are taken to the Verification Page</li>
+              </ul>
+      
+            </div>
+
+            <div className="verify relative h-100 w-75 bg-white/5  border-white border-2  flex flex-col items-center shadow-md shadow-white">
+           
+                
+                <FontAwesomeIcon className=" text-6xl mt-5 bg-linear-to-br from-cyan-300 to-indigo-700 inline-block bg-clip-text text-transparent" icon={faCircleCheck}></FontAwesomeIcon>
+              <div className="text-3xl font-title underline decoration-cyan-300 underline-offset-3">Verify</div>
+             
+
+              <ul className="list-disc text-sm font-kanit mt-5 translate-x-2">
+                <li>The User enters the OTP sent to them</li>
+                <li>The OTP is verified in the Backend</li>
+                <li>OTP Wrong ? User can re enter the OTP</li>
+                <li>OTP Expired ? User has to Re Sign Up</li>
+                <li>Cookie is rewritten so that User is Verified</li>
+                <li>Taken to the final DONE page</li>
+             
+              </ul>
+              
+            </div>
+
+          </div>

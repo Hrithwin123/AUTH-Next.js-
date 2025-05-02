@@ -1,10 +1,13 @@
 "use client"
 import Link from "next/link"
+import HexaScreen from "./components/HexaScreen";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus, faRightToBracket, faHouse, faRightFromBracket, faCircleCheck, faCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home(){
 
 return(
-  <div className=" whole absolute -z-10 home-background bg-[rgb(10, 31, 86)]">
+  <div className=" whole absolute -z-10 home-background bg-[rgb(10, 31, 86)] ">
        <div className="page-1 -z-10 relative  w-[100dvw] h-[100dvh]">
           <div className="absolute image -z-10 bg-center bg-[url(/sec.jpg)] bg-cover h-full w-full text-6xl text-white font-bold font-[sans-serif]">
             
@@ -19,8 +22,8 @@ return(
               <div className="text-5xl font-title">Authorisation</div>
                 <div className="font-title flex flex-col items-center gap-10 py-20  p-5">
 
-                  <Link href="/signup" className="bg-cyan-500/75 hover:bg-cyan-600/75 border-1 p-2 text-4xl rounded-lg underline underline-offset-3 decoration-cyan-300">Sign Up</Link>
-                  <Link href="/login" className="bg-cyan-500/75 hover:bg-cyan-600/75 border-1 p-2 rounded-lg text-4xl underline underline-offset-3 decoration-cyan-300">Login</Link>
+                  <Link href="/signup" className="bg-cyan-500/75 hover:bg-cyan-600/75 hover:cursor-none border-1 p-2 text-4xl rounded-lg underline underline-offset-3 decoration-cyan-300">Sign Up</Link>
+                  <Link href="/login"  className="bg-cyan-500/75 hover:bg-cyan-600/75 hover:cursor-none border-1 p-2 rounded-lg text-4xl underline underline-offset-3 decoration-cyan-300">Login</Link>
 
                 </div>
            
@@ -105,34 +108,45 @@ return(
       </div>
 
       <div className="page-3 relative -z-10  w-[100dvw] h-[100dvh] text-white">
-        <div className="border-2 border-black absolute left-10 top-10">
-          <div className="text-6xl underline decoration-cyan-300 underline-offset-4 font-kanit">Authentication</div>
-          <div className="text-xl  font-kanit">
-          <div className="text-3xl font-kanit">Sign Up</div>
-            <ul className="text-xl">
-              <li>User details are taken using forms.</li>
-              <li>Details are stored in the database.</li>
-              <li>A random 6 digit OTP is generated.</li>
-              <li>The OTP is sent to the email mentioned in the details using Mailtrap.</li>
-              <li>Automatically taken to the verify page to enter OTP</li>
-              <li>Once the correct OTP is entered the user is verified</li>
-              <li>a cookie is set with the user details after signing it with JWT</li>
-              <li>Verified users can access the DONE (content) page</li>
 
-            </ul>
-          </div>
-          <div className="border-2 border-black absolute -10 right bottom-10">
-          <div className="text-3xl font-kanit">Verification</div>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
+        <div className="overflow-hidden h-[100dvh] w-screen relative">
+          <div className="auth-head absolute left-100 top-5 z-2 title text-6xl underline decoration-cyan-200 underline-offset-4 font-title text-center">Authentication</div>
+          <HexaScreen/>
+          <div className="absolute top-35 left-83 flex gap-5 pointer-events-none">
+            
+            <div className="auth h-100 w-75 border-2 border-white pointer-events-none bg-cyan-500/30 shadow-md shadow-white rounded-lg flex flex-col items-center ">
+            <FontAwesomeIcon className="text-cyan-200 text-6xl mt-5" icon={faRightToBracket}></FontAwesomeIcon>
+              <a href="/signup" className="hover:scale-110"><div className="text-3xl underline decoration-cyan-200 underline-offset-3 font-title">Sign Up</div></a>
+              <ul className="list-disc text-sm font-kanit mt-5">
+                <li>User enters Name, Email and Password</li>
+                <li>The data is sent to the DataBase</li>
+                <li>A token is signed of the data using JWT</li>
+                <li>The token is then set as a cookie</li>
+                <li>An OTP is sent to the email of the User</li>
+                <li>They are taken to the Verification Page</li>
+              </ul>
+            </div>
+
+            <div className="verify h-100 w-75 border-2 border-white pointer-events-none bg-cyan-500/30 shadow-md shadow-white rounded-lg flex items-center flex-col">
+            <FontAwesomeIcon className=" text-cyan-200 text-6xl mt-5" icon={faCircleCheck}></FontAwesomeIcon>
+              <div className="text-3xl font-title underline decoration-cyan-200 underline-offset-3">Verify</div>
+             
+
+              <ul className="list-disc text-sm font-kanit mt-5 translate-x-2">
+                <li>The User enters the OTP sent to them</li>
+                <li>The OTP is verified in the Backend</li>
+                <li>OTP Wrong ? User can re enter the OTP</li>
+                <li>OTP Expired ? User has to Re Sign Up</li>
+                <li>Cookie is rewritten so that User is Verified</li>
+                <li>Taken to the final DONE page</li>
+             
+              </ul>
+            </div>
           </div>
         </div>
+          
       </div>
+      
 
 
   </div>

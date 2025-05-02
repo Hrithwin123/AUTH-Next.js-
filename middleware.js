@@ -7,16 +7,17 @@ const envsecret = process.env.JWT_SECRET
 export async function middleware(req){
 
 
-    const token = await req.cookies.get("token")?.value
-    const secret = new TextEncoder().encode(envsecret)
-
     try{
+        const token = await req.cookies.get("token")?.value
+        const secret = new TextEncoder().encode(envsecret)
+        
         const verify = await jwtVerify(token, secret);
 
         return NextResponse.redirect(new URL("/done", req.url))
 
     }
-    catch{
+    catch(err){
+        console.log(err)
         return NextResponse.next()
     }
 

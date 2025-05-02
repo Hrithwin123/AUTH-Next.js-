@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme{
-  --font-kanit : "Kanit";
-  --font-title : "Audiowide";
+ --font-kanit : "kanit";
+ --font-title : "audiowide"
 }
 
 :root{
@@ -207,6 +207,141 @@ transform : translateX(0);
   animation-timeline : view();
   animation-range : exit; 
 
+}
+
+.title{
+  opacity : 0;
+  transform : translatey(150px);
+  animation : title-anim linear forwards;
+  animation-timeline : view();
+  animation-range:enter;
+}
+
+
+.data-box-3{
+  animation : data-box-in linear forwards;
+  animation-timeline:view();
+  animation-range-start:cover;
+  animation-range-end:contain;
+
+  
+}
+
+.data-box-4{
+  animation : data-box-in linear forwards;
+  animation-timeline:view();
+  animation-range-start:cover;
+  animation-range-end:300px;
+  
+  
+}
+
+.signup{
+  opacity : 0.5;
+  transform: translateX(-40px);
+  animation : ul-move-1 linear forwards;
+  animation-timeline:view();
+  animation-range:enter;
+  animation-range-end:300px;
+}
+
+.verify{
+  opacity : 0.5;
+  transform: translateX(40px);
+  animation : ul-move-2 linear forwards;
+  animation-timeline:view();
+  animation-range:enter;
+  animation-range-end:300px;
+}
+
+.hexagon{
+  width: 180px;
+  height: 180px;
+  clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  background: linear-gradient(to bottom right, #009eaf, #5031a4);
+  transition : all .25s; 
+
+}
+
+.hexagon:hover{
+  transform : scale(1.2);
+  background: linear-gradient(to bottom right, #00e5ff, #7e4fff);
+}
+
+
+
+.auth-head{
+  opacity : 0;
+  transform : translateY(150px);
+  animation : title-anim linear forwards;
+  animation-timeline : view();
+  animation-range:enter;
+
+}
+
+.custom-cursor {
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 30% 50%);
+  background-color : white;
+}
+
+input{
+  cursor : none;
+}
+
+
+
+
+@keyframes ul-move-1 {
+
+  75%{
+    transform: translateX(0px);
+  }
+  
+  100%{
+    opacity : 1;
+    transform: translateX(-15px);
+    
+  }
+}
+
+@keyframes ul-move-2 {
+  
+  75%{
+    
+    transform: translateX(0px);
+  }
+  
+  100%{
+    opacity : 1;
+    transform: translateX(15px);
+    
+  }
+}
+
+
+@keyframes data-box-in {
+
+  0%{
+    transform : translateY(-30);
+    scale : 0.7;
+    opacity : 0;
+  }
+  
+  75%{
+    transfrom : none;
+    scale : 1;
+    opacity : 1;
+  }
+}
+
+
+@keyframes title-anim {
+
+  100%{
+    opacity : 1;
+    transform : none;
+
+  }
 }
 
 @keyframes left-box{
